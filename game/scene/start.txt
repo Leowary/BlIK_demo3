@@ -1,0 +1,18 @@
+;初始场景，以及特效演示
+bgm:Kometa.mp3;
+unlockBgm:Kometa.mp3 -name=雲を追いかけて;
+intro:B.LI.K и Leowary представляют -fontSize=medium -backgroundColor=rgba(0, 0, 0, 1) -fontColor=rgba(255, 255, 255, 1) -animation=fadeIn -delayTime=1500;
+changeBg:bg_JapGarden.webp -next;
+unlockCg:bg_JapGarden.webp -name=良夜; // 解锁CG并赋予名称
+changeFigure:Choose Figure File -left -next;
+setAnimation:enter-from-left -target=fig-left -next;
+miniAvatar:figure_BLIK\BLIK_Think.webp;
+B.LI.K:Здарова народ с вами БЛИК. Б@*ь... Я в экстазе просто. Ребята, через некоторое мгновение я кину то от чего я просто в @хуе. Это идально пизд@то... -hello_beta.ogg;
+;模版修改演示
+miniAvatar:figure_BLIK\BLIK_Embare.webp;
+B.LI.K:Ахахахахахаах... О-о-о.. -hahahaha_beta.ogg -fontSize=large;
+miniAvatar:figure_BLIK\BLIK_Chill.webp;
+Мы ищем авантюристов, которые помогут нам сделать игру о вашем любимом... Мне) -fontSize=default;
+setTextbox:hide -next;
+changeFigure:figure_BLIK\BLIK_IDLE.webp;
+choose:Спокойно, мальчики, по одному, я не вывезу столько внимания:选择场景文件|О, так ты ко мне? Ну всё, мне уже нравится:选择场景文件;
