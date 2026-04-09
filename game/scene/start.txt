@@ -1,18 +1,55 @@
-;初始场景，以及特效演示
-bgm:Kometa.mp3;
-unlockBgm:Kometa.mp3 -name=雲を追いかけて;
+;demo
+bgm:Kometa.mp3 -volume=30 -enter=3000; //фоновая музыка, громкость и плавное вступление
+unlockBgm:Kometa.mp3 -name=Комета;
 intro:B.LI.K и Leowary представляют -fontSize=medium -backgroundColor=rgba(0, 0, 0, 1) -fontColor=rgba(255, 255, 255, 1) -animation=fadeIn -delayTime=1500;
-changeBg:bg_JapGarden.webp -next;
-unlockCg:bg_JapGarden.webp -name=良夜; // 解锁CG并赋予名称
+changeBg:bg_JapGarden.webp -next; //изменить background
+unlockCg:bg_JapGarden.webp -name="Японский сад" -series=1; // Разблокируйте фон, дай ему имя и номер серии
+
+miniAvatar:figure_Leo\Leo_mini.webp;
+:Всем счастья! За кадром работает Leowary, а на передний план выходит B.LI.K; //Рассказчик без имени
 changeFigure:Choose Figure File -left -next;
 setAnimation:enter-from-left -target=fig-left -next;
-miniAvatar:figure_BLIK\BLIK_Think.webp;
-B.LI.K:Здарова народ с вами БЛИК. Б@*ь... Я в экстазе просто. Ребята, через некоторое мгновение я кину то от чего я просто в @хуе. Это идально пизд@то... -hello_beta.ogg;
-;模版修改演示
+miniAvatar:figure_BLIK\BLIK_mini.webp;
+B.LI.K:Здарова народ с вами БЛИК. Б@*ь... Я в экстазе просто. Ребята, через некоторое мгновение я кину то от чего я просто в @хуе. Это идально пизд@то... -hello_beta.mp3;
+;комментарий
 miniAvatar:figure_BLIK\BLIK_Embare.webp;
-B.LI.K:Ахахахахахаах... О-о-о.. -hahahaha_beta.ogg -fontSize=large;
-miniAvatar:figure_BLIK\BLIK_Chill.webp;
-Мы ищем авантюристов, которые помогут нам сделать игру о вашем любимом... Мне) -fontSize=default;
+B.LI.K:Ахахахахахаах... О-о-о.. -hahahaha_beta.mp3 -fontSize=large;
 setTextbox:hide -next;
+changeFigure:figure_BLIK\BLIK_Chill.webp -left -next;
+filmMode:enable -next; //Кинематографический режим
+Мы ищем авантюристов, которые помогут нам сделать игру о вашем любимом... Мне) -fontSize=large;
+changeFigure:none -left -next;
+filmMode:none;
+bgm:none -enter=3000; //плавно заглушить фоновую музыку
+
+setTextbox:on -next;
+miniAvatar:figure_BLIK\BLIK_mini.webp;
 changeFigure:figure_BLIK\BLIK_IDLE.webp;
-choose:Спокойно, мальчики, по одному, я не вывезу столько внимания:选择场景文件|О, так ты ко мне? Ну всё, мне уже нравится:选择场景文件;
+getUserInput:name -title=Как тебя зовут? -buttonText=OK; Написать имя
+B.LI.K: Рад с тобой познакомиться, {name}!
+miniAvatar:none;
+{name}: Я тоже, B.LI.K!;
+miniAvatar:figure_BLIK\BLIK_mini.webp;
+B.LI.K: Чего хочешь, мой сладкий пирожочек?)
+choose:Стать авантюристом и помочь с проектом (у меня прямые руки):label_1|Стать спонсором (у меня лапки):label_2;
+
+label:label_1; // Create a label named label_1
+miniAvatar:figure_BLIK\BLIK_mini.webp;
+B.LI.K:Спокойно, мальчики, по одному, я не вывезу столько внимания)
+: Вот ссылка -next;
+miniAvatar:QR.webp;
+changeFigure:QR.webp -transform={"scale":{"x":0.5,"y":0.5}};
+changeFigure:none -next;
+jumpLabel:end; // Jump to end
+
+label:label_2; // Create a label named label_2
+miniAvatar:figure_BLIK\BLIK_mini.webp;
+B.LI.K:О, так ты ко мне? Ну всё, мне уже нравится)
+: Скоро здесь будет ссылка для донатов;
+jumpLabel:end;
+
+label:end; // Create a label named end
+miniAvatar:figure_BLIK\BLIK_mini.webp -next;
+changeFigure:figure_BLIK\BLIK_IDLE.webp -next;
+: До встречи, мои сладкие);
+end;

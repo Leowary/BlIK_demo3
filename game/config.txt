@@ -3,4 +3,4 @@ Game_key:91bdafd57a55f48;
 Title_img:bg_JapGarden.webp;
 Title_bgm:Город_Бездны_царя_версия_2_создано_на_сайте_ТвойХит_рф.mp3;
 Textbox_theme:imss;
-Default_Language:;
+Default_Language: ru;
